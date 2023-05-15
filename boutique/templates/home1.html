@@ -17,7 +17,7 @@
                             <h5 class="card-title">{{ produit.designation }}</h5>
                             <p class="card-text">{{ produit.description }}</p>
                             <p class="card-text">{{ produit.prix }} €</p>
-                            <a href="#" class="btn btn-primary">Acheter</a>
+                            <a href="{% url 'ajouter_panier' produit.id %}" class="btn btn-primary">Acheter</a>
                             <a href="{% url 'produit_detail' produit.id %}" class="btn btn-primary">Voir les détails</a>
                         </div>
                     </div>

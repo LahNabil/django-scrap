@@ -41,16 +41,22 @@
         <a class="nav-link" href="{% url 'connexion'%}">Connexion</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contactez-Nous</a>
+        <a class="nav-link" href="{%url 'ContactPage'%}">Contactez-Nous</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="#">A propos de nous </a>
+        <a class="nav-link" href="{%url 'AboutUs'%}">A propos de nous </a>
       </li>
       <li class="nav-item ml-auto" id="but">
-        <span>{{request.user}}</span>
+      {% if request.user.is_authenticated %}
+        <span>{{ request.user }}</span>
         <a href="{% url 'logout' %}" class="btn btn-info btn-lg">
-          <span class="bi bi-box-arrow-right"></span> Log out
+        <span class="bi bi-box-arrow-right"></span> Log out
         </a>
+      {% else %}
+        <a href="{% url 'connexion' %}" class="btn btn-info btn-lg">
+        <span class="bi bi-box-arrow-right"></span> Log in
+        </a>
+      {% endif %}
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'panier' %}">

@@ -34,7 +34,7 @@ def connexion(request):
         return render(request, 'connexion.html', context)
 
 
-@login_required(login_url='connexion')
+
 def home(request):
     return render(request,'home1.html')
 
